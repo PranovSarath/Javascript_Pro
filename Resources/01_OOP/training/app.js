@@ -10,3 +10,4 @@ console.log(pet[key])
 pet.bark = function () {
     return "WOOF WOOF";
 };
+ 
