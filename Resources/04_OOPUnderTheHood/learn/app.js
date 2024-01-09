@@ -1,10 +1,10 @@
-const myObj = {
-    color: "purple",
-    score: 99,
-    greet() {
-        console.log('Hi!');
-    }
-}
+// const myObj = {
+//     color: "purple",
+//     score: 99,
+//     greet() {
+//         console.log('Hi!');
+//     }
+// }
 
 
 // class Dog{
@@ -22,19 +22,19 @@ const myObj = {
 //     }
 // }
 
-// function Dog(name, breed){
-//     console.log('This is:', this);
-//     this.name = name;
-//     this.breed = breed;
+function Dog(name, breed){
+    console.log('This is:', this);
+    this.name = name;
+    this.breed = breed;
+}
 
-//     this.bark = function(){
-//         return `${this.name} says woof!`;
-//     }
+Dog.prototype.bark = function(){
+    return `${this.name} says woof!`;
+}
 
-//     this.sleep = function(){
-//         return `${this.name} is sleeping;`
-//     }
-// }
+Dog.prototype.sleep = function(){
+    return `${this.name} is sleeping;`
+}
 
 // function User(name, email){
 //     this.name = name;
