@@ -11,7 +11,7 @@ async function allSettledDemo() {
 
     let anotherBadUrl = fetch("http://definitelynotarealsite.com");
 
-    let resutls = await Promise.allSettled([
+    let results = await Promise.allSettled([
         elieP,
         joelP,
         badUrl,
@@ -20,6 +20,11 @@ async function allSettledDemo() {
 
     ]);
 
-    console.log(resutls);
+    console.log(results)
+    const fulfilled = results.filter(r => results.status === 'fulfilled');
+    const rejected = resutls.filter((r) => r.status === 'rejected');
+    console.log(fulfilled);
+    console.log(rejected);
 }
 
+allSettledDemo();
