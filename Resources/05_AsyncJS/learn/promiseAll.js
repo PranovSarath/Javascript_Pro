@@ -1,25 +1,18 @@
-async function allSettledDemo() {
-    const GITHUB_BASE_URL = "http://api.github.com";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
-    let elieP = fetch(`${GITHUB_BASE_URL}/users/elie`);
+const lotsOfFetchCalls = [fetch(`${BASE_URL}/1`),
+fetch(`${BASE_URL}/2`),
+fetch(`${BASE_URL}/3`),
+fetch(`${BASE_URL}/4`),
+fetch(`${BASE_URL}/5`),
+fetch(`${BASE_URL}/6`)];
 
-    let joelP = fetch(`${GITHUB_BASE_URL}/users/joelburton`);
-
-    let badUrl = fetch("http://definitelynotarealsite.com");
-
-    let coltP = fetch(`${GITHUB_BASE_URL}/users/colt`);
-
-    let anotherBadUrl = fetch("http://definitelynotarealsite.com");
-
-    let resutls = await Promise.allSettled([
-        elieP,
-        joelP,
-        badUrl,
-        coltP,
-        another
-
-    ]);
-
-    console.log(resutls);
+Promise.all(lotsOfFetchCalls).then((results) => {
+    console.log("Promise.all() is done and resolved");
+    console.log(results);
 }
+).catch((err) => {
+    console.log('One of the promises was rejected');
+    console.log(err);
+})
 
