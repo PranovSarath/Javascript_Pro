@@ -5,8 +5,12 @@ async function showNumberTrivia(fav_number){
     BASE_URL = " http://numbersapi.com";
     FETCH_TRIVIA_AS_JSON = `${BASE_URL}/${fav_number}/trivia?json`;
     try{
-        const data = await fetch(FETCH_TRIVIA_AS_JSON);
-        const triviaText = await data.text();
+        const response = await fetch(FETCH_TRIVIA_AS_JSON);
+        if (!response.ok){
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        const triviaText = data.text;
         console.log('TRIVIA about your favourite number:');
         console.log(triviaText);
     } catch(err){
@@ -14,4 +18,4 @@ async function showNumberTrivia(fav_number){
     }
 }
 
-showNumberTrivia(39);
+showNumberTrivia(13);
